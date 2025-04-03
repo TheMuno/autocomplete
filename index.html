@@ -59,7 +59,8 @@
             $autocompleteWrap.appendChild(placeAutocomplete);
 
             // Add the gmp-placeselect listener, and display the results.
-            placeAutocomplete.addEventListener('gmp-placeselect', async (res) => {
+            // placeAutocomplete.addEventListener('gmp-placeselect', async (res) => {
+            placeAutocomplete.addEventListener('gmp-select', async (res) => {
                 console.log('ran...')
                 console.log('res', res)
 
