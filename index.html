@@ -63,6 +63,7 @@
             placeAutocomplete.addEventListener('gmp-select', async (res) => {
                 console.log('ran...')
                 console.log('res', res)
+                console.log('placePrediction', res.placePrediction.toPlace())
 
                 const { place } = res;
                 await place.fetchFields({
