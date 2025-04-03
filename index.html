@@ -65,7 +65,17 @@
                 console.log('res', res)
                 console.log('placePrediction', res.placePrediction.toPlace())
 
-                const { place } = res;
+                const placeObj = res.placePrediction.toPlace();
+                const editorialSummary = placeObj.editorialSummary();
+                const displayName = placeObj.displayName();
+                const location = placeObj.location();
+
+                console.log('placeObj', placeObj)
+                console.log('editorialSummary', editorialSummary)
+                console.log('displayName', displayName)
+                console.log('location', location)
+
+                /*const { place } = res;
                 await place.fetchFields({
                     fields: mapFetchFields,
                 });
@@ -76,7 +86,7 @@
                     displayName, 
                     location: { lat, lng },
                     editorialSummary,
-                } = placeObj; 
+                } = placeObj; */
 
                 const marker = createMarker(displayName, {lat, lng}, editorialSummary); 
                 // markerArr.push(marker); 
