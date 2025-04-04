@@ -61,19 +61,12 @@
             // Add the gmp-placeselect listener, and display the results.
             // placeAutocomplete.addEventListener('gmp-placeselect', async (res) => {
             placeAutocomplete.addEventListener('gmp-select', async (res) => {
-                console.log('ran...')
-                console.log('res', res)
-                console.log('placePrediction', res.placePrediction.toPlace())
-
-                const placeObj = res.placePrediction.toPlace();
-                const editorialSummary = placeObj.editorialSummary();
-                const displayName = placeObj.displayName();
-                const location = placeObj.location();
+                const { placePrediction } = res;
+                const place = placePrediction.toPlace();
+                await place.fetchFields({ fields: ['displayName', 'location', 'editorialSummary'] });
+                const placeObj = place.toJSON(); 
 
                 console.log('placeObj', placeObj)
-                console.log('editorialSummary', editorialSummary)
-                console.log('displayName', displayName)
-                console.log('location', location)
 
                 /*const { place } = res;
                 await place.fetchFields({
@@ -86,9 +79,10 @@
                     displayName, 
                     location: { lat, lng },
                     editorialSummary,
-                } = placeObj; */
+                } = placeObj; 
+                */
 
-                const marker = createMarker(displayName, {lat, lng}, editorialSummary); 
+                // const marker = createMarker(displayName, {lat, lng}, editorialSummary); 
                 // markerArr.push(marker); 
 
                 // ...
