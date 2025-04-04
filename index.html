@@ -67,22 +67,14 @@
                 const placeObj = place.toJSON(); 
 
                 console.log('placeObj', placeObj)
-
-                /*const { place } = res;
-                await place.fetchFields({
-                    fields: mapFetchFields,
-                });
-
-                const placeObj = place.toJSON(); 
                 
                 const { 
                     displayName, 
                     location: { lat, lng },
                     editorialSummary,
                 } = placeObj; 
-                */
 
-                // const marker = createMarker(displayName, {lat, lng}, editorialSummary); 
+                const marker = createMarker(displayName, {lat, lng}, editorialSummary); 
                 // markerArr.push(marker); 
 
                 // ...
